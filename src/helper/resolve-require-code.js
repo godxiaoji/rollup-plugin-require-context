@@ -8,7 +8,7 @@ function getUID() {
 
 
 function genImportCode(name, path) {
-  return `import ${name} from '${path}';\n`;
+  return `import * as ${name} from '${path}';\n`;
 }
 
 function genPropsCode(key, value) {
@@ -25,7 +25,7 @@ module.exports = function genRequireCode(baseDirname, modules) {
 
     const moduleAbsolutePath = Path.resolve(baseDirname, file).replace(/\\/g, '/');
     importCode += genImportCode(moduleName, moduleAbsolutePath);
-    moduleProps += genPropsCode(file, moduleName);
+    moduleProps += genPropsCode(file.replace(/\\/g, '/'), moduleName);
   });
   const requireFnCode = (`
   (function() {
