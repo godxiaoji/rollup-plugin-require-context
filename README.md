@@ -2,6 +2,8 @@
 
 Rollup plugin for resolving webpack require-context.
 
+PS: 组件库需要用到这个插件，但是原来的作者已经不维护好久了，积累了一些bug，就把pull requests的合并一下上传。
+
 ## Usage
 
 ```javascript
